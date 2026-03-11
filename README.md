@@ -17,7 +17,7 @@ Until then, you can install it directly from this repo.
 ### Copilot CLI
 
 ```bash
-copilot plugin install planetscale/vscode-plugin
+copilot plugin install planetscale/vscode-agent-plugin
 ```
 
 See [Installing plugins](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing) for more details.
@@ -27,7 +27,7 @@ See [Installing plugins](https://docs.github.com/en/copilot/how-tos/copilot-cli/
 1. Clone the repo:
 
    ```bash
-   git clone https://github.com/planetscale/vscode-plugin.git
+   git clone https://github.com/planetscale/vscode-agent-plugin.git
    ```
 
 2. Register the plugin path in your VS Code settings (`Cmd+,` / `Ctrl+,`, search for `chat.plugins.paths`):

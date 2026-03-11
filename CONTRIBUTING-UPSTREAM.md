@@ -13,7 +13,7 @@ Add the following entry to the `plugins` array in `.github/plugin/marketplace.js
   "name": "planetscale",
   "source": {
     "source": "github",
-    "repo": "planetscale/vscode-plugin"
+    "repo": "planetscale/vscode-agent-plugin"
   },
   "description": "PlanetScale database tools — query schemas, run SQL, get performance insights, and access expert database knowledge for MySQL, PostgreSQL, Vitess, and Postgres sharding.",
   "version": "1.0.0"
@@ -25,7 +25,7 @@ Add the following entry to the `plugins` array in `.github/plugin/marketplace.js
 ```
 ## Add PlanetScale plugin
 
-Adds the PlanetScale plugin as an external reference to `planetscale/vscode-plugin`.
+Adds the PlanetScale plugin as an external reference to `planetscale/vscode-agent-plugin`.
 
 ### What it provides
 
@@ -34,7 +34,7 @@ Adds the PlanetScale plugin as an external reference to `planetscale/vscode-plug
 
 ### Source repository
 
-https://github.com/planetscale/vscode-plugin
+https://github.com/planetscale/vscode-agent-plugin
 ```
 
 ---
@@ -54,7 +54,7 @@ Add the following entry to `plugins/external.json`:
     "name": "PlanetScale",
     "url": "https://planetscale.com"
   },
-  "homepage": "https://github.com/planetscale/vscode-plugin",
+  "homepage": "https://github.com/planetscale/vscode-agent-plugin",
   "keywords": [
     "database",
     "mysql",
@@ -66,10 +66,10 @@ Add the following entry to `plugins/external.json`:
     "planetscale"
   ],
   "license": "MIT",
-  "repository": "https://github.com/planetscale/vscode-plugin",
+  "repository": "https://github.com/planetscale/vscode-agent-plugin",
   "source": {
     "source": "github",
-    "repo": "planetscale/vscode-plugin"
+    "repo": "planetscale/vscode-agent-plugin"
   }
 }
 ```
@@ -81,7 +81,7 @@ After adding to `external.json`, run `npm run build` to regenerate `marketplace.
 ```
 ## Add PlanetScale external plugin
 
-Adds PlanetScale as an external plugin in `plugins/external.json`, pointing to `planetscale/vscode-plugin`.
+Adds PlanetScale as an external plugin in `plugins/external.json`, pointing to `planetscale/vscode-agent-plugin`.
 
 ### What it provides
 
@@ -94,5 +94,5 @@ Adds PlanetScale as an external plugin in `plugins/external.json`, pointing to `
 
 ### Source repository
 
-https://github.com/planetscale/vscode-plugin
+https://github.com/planetscale/vscode-agent-plugin
 ```

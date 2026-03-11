@@ -1,0 +1,22 @@
+{
+  "name": "planetscale",
+  "description": "PlanetScale database tools for GitHub Copilot — query schemas, run SQL, get performance insights, and access expert database knowledge for MySQL, PostgreSQL, Vitess, and Postgres sharding.",
+  "version": "1.0.0",
+  "author": {
+    "name": "PlanetScale",
+    "url": "https://planetscale.com"
+  },
+  "repository": "https://github.com/planetscale/vscode-plugin",
+  "license": "MIT",
+  "keywords": [
+    "database",
+    "mysql",
+    "postgresql",
+    "vitess",
+    "schema",
+    "sql",
+    "performance",
+    "planetscale"
+  ],
+  "mcpServers": ".mcp.json"
+}

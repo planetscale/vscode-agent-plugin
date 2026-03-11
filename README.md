@@ -8,22 +8,19 @@ Agent plugin for installing the [PlanetScale MCP server](https://planetscale.com
 
 **Database Skills** — Expert knowledge for MySQL, PostgreSQL, Vitess, and Postgres sharding (Neki), loaded on-demand into Copilot's context.
 
-## Install from the plugin marketplace
+## Install
 
-1. Open the Extensions view (`Ctrl+Shift+X` / `Cmd+Shift+X`)
-2. Enter `@agentPlugins` in the search field
-3. Find **PlanetScale** and select **Install**
+> Agent plugins require VS Code with the `chat.plugins.enabled` setting enabled (on by default in VS Code 1.100+).
 
-The plugin requires the `chat.plugins.enabled` setting to be enabled (it is by default in VS Code 1.100+).
+### From the GitHub repo
 
-### Verify it loaded
+Using the [Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing#install-directly-from-an-online-git-repository):
 
-- Open the Chat view and type `/` — you should see `mysql`, `postgres`, `vitess`, and `neki` skills listed
-- Check the MCP server list to confirm the `planetscale` server is connected
+```bash
+copilot plugin install planetscale/vscode-plugin
+```
 
-## Test locally
-
-To test this plugin from a local checkout:
+### From a local clone
 
 1. Clone with submodules:
 
@@ -31,7 +28,7 @@ To test this plugin from a local checkout:
    git clone --recurse-submodules https://github.com/planetscale/vscode-plugin.git
    ```
 
-2. Add the plugin path to your VS Code settings:
+2. Register the plugin in your VS Code settings (`Cmd+,` or `Ctrl+,`, then search for `chat.plugins.paths`):
 
    ```jsonc
    // settings.json
@@ -40,7 +37,12 @@ To test this plugin from a local checkout:
    }
    ```
 
-3. Reload VS Code. The skills and MCP server should appear in Copilot chat.
+3. Reload VS Code.
+
+### Verify it loaded
+
+- Open the Chat view and select the gear icon > **Configure Skills** — you should see `mysql`, `postgres`, `vitess`, and `neki` listed
+- Check the MCP server list to confirm the `planetscale` server is connected
 
 ## Skills source and sync
 
@@ -72,12 +74,3 @@ Commit the resulting submodule pointer change.
 ### Automated weekly updates
 
 GitHub Actions runs `.github/workflows/update-skills.yml` weekly and supports manual runs (`workflow_dispatch`). When `database-skills` has new commits, the workflow opens a PR with the submodule pointer update.
-
-## Submitting to marketplaces
-
-This plugin is submitted to two GitHub Copilot plugin marketplaces:
-
-- **[github/copilot-plugins](https://github.com/github/copilot-plugins)** — The official GitHub Copilot plugins collection
-- **[github/awesome-copilot](https://github.com/github/awesome-copilot)** — Community-contributed plugins and customizations
-
-See `CONTRIBUTING-UPSTREAM.md` for the exact PR content for each.

@@ -35,7 +35,7 @@ See [Installing plugins](https://docs.github.com/en/copilot/how-tos/copilot-cli/
    ```jsonc
    // settings.json
    "chat.plugins.paths": {
-     "/path/to/vscode-plugin": true
+     "/path/to/vscode-agent-plugin": true
    }
    ```
 

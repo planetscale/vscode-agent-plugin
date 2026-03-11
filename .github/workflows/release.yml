@@ -24,7 +24,7 @@ jobs:
       - name: Create archive
         if: ${{ steps.release.outputs.release_created }}
         run: |
-          tar -czvf planetscale-vscode-plugin.tar.gz \
+          tar -czvf planetscale-vscode-agent-plugin.tar.gz \
             plugin.json \
             .github/plugin/plugin.json \
             .mcp.json \
@@ -34,4 +34,4 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload ${{ steps.release.outputs.tag_name }} planetscale-vscode-plugin.tar.gz
+        run: gh release upload ${{ steps.release.outputs.tag_name }} planetscale-vscode-agent-plugin.tar.gz

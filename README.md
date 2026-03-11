@@ -1,6 +1,6 @@
-# PlanetScale VS Code Plugin
+# PlanetScale Plugin
 
-Agent plugin for installing the [PlanetScale MCP server](https://planetscale.com/docs/connect/mcp) and [Database Skills](https://db-skills.com/) into VS Code via GitHub Copilot.
+Agent plugin that bundles the [PlanetScale MCP server](https://planetscale.com/docs/connect/mcp) and [Database Skills](https://db-skills.com/) for GitHub Copilot. Works with both **VS Code** and the **Copilot CLI**.
 
 ## What's included
 
@@ -10,25 +10,27 @@ Agent plugin for installing the [PlanetScale MCP server](https://planetscale.com
 
 ## Install
 
-> Agent plugins require VS Code with the `chat.plugins.enabled` setting enabled (on by default in VS Code 1.100+).
+This plugin is being submitted to the [copilot-plugins](https://github.com/github/copilot-plugins) and [awesome-copilot](https://github.com/github/awesome-copilot) marketplaces. Once accepted, it will be discoverable via `@agentPlugins` in VS Code and `copilot plugin marketplace browse` in the CLI.
 
-### From the GitHub repo
+Until then, you can install it directly from this repo.
 
-Using the [Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing#install-directly-from-an-online-git-repository):
+### Copilot CLI
 
 ```bash
 copilot plugin install planetscale/vscode-plugin
 ```
 
-### From a local clone
+See [Installing plugins](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing) for more details.
 
-1. Clone with submodules:
+### VS Code
+
+1. Clone the repo:
 
    ```bash
-   git clone --recurse-submodules https://github.com/planetscale/vscode-plugin.git
+   git clone https://github.com/planetscale/vscode-plugin.git
    ```
 
-2. Register the plugin in your VS Code settings (`Cmd+,` or `Ctrl+,`, then search for `chat.plugins.paths`):
+2. Register the plugin path in your VS Code settings (`Cmd+,` / `Ctrl+,`, search for `chat.plugins.paths`):
 
    ```jsonc
    // settings.json
@@ -39,38 +41,15 @@ copilot plugin install planetscale/vscode-plugin
 
 3. Reload VS Code.
 
+> Agent plugins require the `chat.plugins.enabled` setting to be enabled (on by default in VS Code 1.100+). See [Agent plugins in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-plugins) for more details.
+
 ### Verify it loaded
 
-- Open the Chat view and select the gear icon > **Configure Skills** — you should see `mysql`, `postgres`, `vitess`, and `neki` listed
-- Check the MCP server list to confirm the `planetscale` server is connected
+- **Skills**: Open the Chat view and select the gear icon > **Configure Skills** — you should see `mysql`, `postgres`, `vitess`, and `neki` listed
+- **MCP**: Check the MCP server list to confirm the `planetscale` server is connected
 
 ## Skills source and sync
 
-This plugin pulls in skills from the upstream `planetscale/database-skills` repository via a Git submodule.
+Skills are sourced from the [planetscale/database-skills](https://github.com/planetscale/database-skills) repository. A copy lives in `skills/` for install compatibility, and a Git submodule at `database-skills/` tracks the upstream.
 
-- Source repo: `https://github.com/planetscale/database-skills`
-- Submodule path: `database-skills`
-- Tracked branch: `main`
-
-### Local bootstrap
-
-If you already cloned without submodules:
-
-```bash
-git submodule update --init --recursive
-```
-
-### Manual one-off update
-
-To pull the latest upstream skills:
-
-```bash
-git submodule sync --recursive
-git submodule update --init --remote database-skills
-```
-
-Commit the resulting submodule pointer change.
-
-### Automated weekly updates
-
-GitHub Actions runs `.github/workflows/update-skills.yml` weekly and supports manual runs (`workflow_dispatch`). When `database-skills` has new commits, the workflow opens a PR with the submodule pointer update.
+GitHub Actions runs `.github/workflows/update-skills.yml` weekly (with manual `workflow_dispatch` support). When the upstream has new commits, the workflow copies the latest skills into `skills/` and opens a PR.

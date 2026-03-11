@@ -35,6 +35,11 @@ jobs:
             test -f "database-skills/skills/$skill/SKILL.md"
           done
 
+      - name: Copy skills to plugin root
+        run: |
+          rm -rf skills
+          cp -R database-skills/skills .
+
       - name: Capture updated submodule commit
         id: after
         run: |
@@ -72,3 +77,4 @@ jobs:
           add-paths: |
             .gitmodules
             database-skills
+            skills

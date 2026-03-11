@@ -20,17 +20,15 @@ jobs:
 
       - uses: actions/checkout@v4
         if: ${{ steps.release.outputs.release_created }}
-        with:
-          submodules: true
 
       - name: Create archive
         if: ${{ steps.release.outputs.release_created }}
         run: |
           tar -czvf planetscale-vscode-plugin.tar.gz \
-            --dereference \
+            plugin.json \
             .github/plugin/plugin.json \
             .mcp.json \
-            database-skills/skills/
+            skills/
 
       - name: Upload release asset
         if: ${{ steps.release.outputs.release_created }}

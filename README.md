@@ -1,4 +1,4 @@
-# PlanetScale Plugin
+# PlanetScale Plugin for VS Code and Copilot CLI
 
 Agent plugin that bundles the [PlanetScale MCP server](https://planetscale.com/docs/connect/mcp) and [Database Skills](https://db-skills.com/) for GitHub Copilot. Works with both **VS Code** and the **Copilot CLI**.
 
